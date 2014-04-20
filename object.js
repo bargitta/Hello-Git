@@ -14,7 +14,31 @@ if(typeof Object.beget !== 'function'){
 //use literal
 var namecard = {
 	name : "mac",
-	company  : "apple"
+	company  : "apple",
+	print: function(){
+		console.log('name is ' + this.name + ', and company is '+ this.company)
+	}
 };
 
-console.log(namecard.name);
+//namecard.print();
+
+var msnamecard = Object.create(namecard);
+console.log(msnamecard.__proto__);
+// F {name: "mac", company: "apple", print: function}
+// __proto__: Object
+// 		company: "apple"
+// 		name: "mac"
+// 		print: function (){
+// 		__proto__: Object
+
+//change parent's behavior, will affect child's
+namecard.trash = function(){
+	this.obsolete = true;
+	this.name = "invalid";
+	this.company = "not available"
+};
+
+namecard.trash();
+msnamecard.print();
+
+
