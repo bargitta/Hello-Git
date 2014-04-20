@@ -1,7 +1,7 @@
-//prototype
+//use prototype to implement inheritance
 //add create method to Object
 //create a function whose prototype points to parent
-if(typeof Object.beget !== 'function'){
+if(typeof Object.create !== 'function'){
 
 	Object.create = function(parent){
 
@@ -23,13 +23,21 @@ var namecard = {
 //namecard.print();
 
 var msnamecard = Object.create(namecard);
-console.log(msnamecard.__proto__);
+//console.log(msnamecard.__proto__);
+//output
 // F {name: "mac", company: "apple", print: function}
 // __proto__: Object
 // 		company: "apple"
 // 		name: "mac"
 // 		print: function (){
 // 		__proto__: Object
+
+msnamecard.name = 'ms';
+msnamecard.company = 'mrsf'
+
+msnamecard.print();
+delete msnamecard.name;
+msnamecard.print();//delete the property will use the prototype's
 
 //change parent's behavior, will affect child's
 namecard.trash = function(){
@@ -41,4 +49,6 @@ namecard.trash = function(){
 namecard.trash();
 msnamecard.print();
 
-
+msnamecard.trash();
+msnamecard.print();
+namecard.print();
