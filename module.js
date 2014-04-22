@@ -6,6 +6,16 @@ Function.prototype.method = function (name,func){
 	return this;//return this for chain
 };
 
+Number .method('add', function(a){
+		if(typeof a === 'number')
+			return this + a;})
+	
+		.method('sub', function(b){
+		if(typeof b === 'number')
+			return this - b;
+		});
+console.log((3).sub(10).add(5));
+
 String.method('deentityify', function(){
 	var entity = {
 		quot: '"',
@@ -24,4 +34,4 @@ String.method('deentityify', function(){
 //var a = '&lt;&quot;&gt;';
 
 console.log('&lt;&quot;&gt;'.deentityify());
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
