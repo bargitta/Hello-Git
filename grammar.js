@@ -36,6 +36,11 @@ console.assert(!e);
 var d = 'a'&&'b';
 console.assert(d === 'b');
 
-
+//operator ||
+//when the first is true, return the first, otherwise return the second
+d = 'a' || 'b';
+console.assert(d === 'a');
+d = '' || 'a';
+console.assert(d === 'a');
 
 
